@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Настройка — Эмуляторы на Steam Deck{% endblock %}
+{% block content %}
+<section>
+    <h2>Пошаговая настройка</h2>
+    <p>Подробное руководство по установке и настройке эмуляторов на Steam Deck.</p>
+</section>
+
+<section>
+    <h2>Способ 1: EmuDeck (рекомендуется)</h2>
+    <div class="card">
+        <p><strong>EmuDeck</strong> — автоматический установщик, который настроит всё за вас.</p>
+        <ol class="steps">
+            <li>
+                <strong>Включите Desktop Mode</strong>
+                <p>Зажмите кнопку питания → "Switch to Desktop".</p>
+            </li>
+            <li>
+                <strong>Скачайте EmuDeck</strong>
+                <p>Откройте браузер и перейдите на <a href="https://www.emudeck.com/" style="color:#00d4aa;">emudeck.com</a>. Скачайте установщик.</p>
+            </li>
+            <li>
+                <strong>Запустите установку</strong>
+                <p>Найдите скачанный файл (обычно в Downloads) и запустите его двойным кликом.</p>
+                <pre><code>chmod +x EmuDeck.desktop
+./EmuDeck.desktop</code></pre>
+            </li>
+            <li>
+                <strong>Выберите конфигурацию</strong>
+                <p>Укажите, какие эмуляторы установить и куда сохранять ROM-файлы.</p>
+            </li>
+            <li>
+                <strong>Дождитесь завершения</strong>
+                <p>EmuDeck сам скачает и настроит все эмуляторы, RetroArch и Steam ROM Manager.</p>
+            </li>
+            <li>
+                <strong>Скопируйте ROM-файлы</strong>
+                <p>Папки для ROM-ов находятся в Emulation/roms на вашей SD-карте или SSD.</p>
+            </li>
+            <li>
+                <strong>Запустите Steam ROM Manager</strong>
+                <p>Добавьте игры в библиотеку Steam для запуска из Game Mode.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section>
+    <h2>Способ 2: Вручную через Discover</h2>
+    <div class="card">
+        <p>Если вы хотите установить только один эмулятор без EmuDeck:</p>
+        <ol class="steps">
+            <li>
+                <strong>Откройте Discover Store</strong>
+                <p>В Desktop Mode найдите Discover в меню приложений.</p>
+            </li>
+            <li>
+                <strong>Найдите эмулятор</strong>
+                <p>Поищите "Dolphin", "PCSX2", "PPSSPP" или "RetroArch".</p>
+            </li>
+            <li>
+                <strong>Установите</strong>
+                <p>Нажмите "Install" и дождитесь завершения.</p>
+            </li>
+            <li>
+                <strong>Настройте управление</strong>
+                <p>В настройках эмулятора выберите раскладку для геймпада Steam Deck.</p>
+            </li>
+        </ol>
+        <div class="alert alert-success">
+            Через Discover стоят стабильные версии. Для свежих сборок используйте Flatpak из бета-ветки.
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Настройка управления</h2>
+    <div class="card">
+        <h3>Контроллер Steam Deck</h3>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Все эмуляторы автоматически распознают контроллер Steam Deck</li>
+            <li>Для RetroArch используйте меню "Controls" для настройки кнопок</li>
+            <li>В Dolphin и PCSX2 контроллер настраивается в отдельном меню</li>
+        </ul>
+    </div>
+    <div class="card">
+        <h3>Гироскоп</h3>
+        <p>Гироскоп Steam Deck можно использовать для прицеливания в играх для Wii и PS3. Настройте его в параметрах эмулятора как эмуляцию мыши.</p>
+    </div>
+    <div class="card">
+        <h3>Трекпады</h3>
+        <p>Трекпады отлично работают как эмуляция мыши для DOS-игр и стратегий. Используйте стандартную раскладку Steam Input.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Настройка производительности</h2>
+    <div class="card">
+        <ul style="margin-left:1.5rem;">
+            <li><strong>TDP:</strong> Для PS2/GameCube выставьте 9-12 Вт; для PS1/SNES — 4-6 Вт</li>
+            <li><strong>Разрешение:</strong> Используйте родное (1280×800) или 2x для PSP</li>
+            <li><strong>VSync:</strong> Включите для устранения разрывов</li>
+            <li><strong>Шейдеры:</strong> Включите кэширование для плавной игры</li>
+            <li><strong>Частота кадров:</strong> Ограничьте до 60 FPS через настройки эмулятора</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Русскоязычные гайды по настройке</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>YouTube: Steam Deck EmuDeck</h3>
+            <p>Подробный гайд по установке EmuDeck на русском</p>
+            <p><a href="https://www.youtube.com/results?search_query=emudeck+steam+deck+%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0+%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9" target="_blank" style="color:#00d4aa;">Смотреть →</a></p>
+        </div>
+        <div class="card">
+            <h3>YouTube: RetroArch на Steam Deck</h3>
+            <p>Настройка RetroArch и шейдеров</p>
+            <p><a href="https://www.youtube.com/results?search_query=retroarch+steam+deck+%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0+%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9" target="_blank" style="color:#00d4aa;">Смотреть →</a></p>
+        </div>
+        <div class="card">
+            <h3>YouTube: PCSX2 на Steam Deck</h3>
+            <p>Гайд по эмуляции PS2 на русском</p>
+            <p><a href="https://www.youtube.com/results?search_query=pcsx2+steam+deck+%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0+%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9" target="_blank" style="color:#00d4aa;">Смотреть →</a></p>
+        </div>
+        <div class="card">
+            <h3>YouTube: Полный гайд</h3>
+            <p>Обзор всех эмуляторов на Steam Deck</p>
+            <p><a href="https://www.youtube.com/results?search_query=steam+deck+%D1%8D%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%8B+%D0%BF%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9+%D0%B3%D0%B0%D0%B9%D0%B4" target="_blank" style="color:#00d4aa;">Смотреть →</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
