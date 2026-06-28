@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
-app.secret_key = "girkaaa-secret-key"
+app.secret_key = os.environ.get("SECRET_KEY", "girkaaa-secret-key")
 
 DB_PATH = os.path.join(os.path.dirname(__file__), "site.db")
 
@@ -93,9 +93,9 @@ def add_comment():
     return jsonify({"ok": True})
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "0") == "1"
     hostname = socket.gethostname()
     local_ip = socket.gethostbyname(hostname)
-    print(f"Сайт girkaaa запущен!")
-    print(f"Локально:    http://127.0.0.1:5000")
-    print(f"В сети:      http://{local_ip}:5000")
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    print(f"Сайт girkaaa запущен! http://0.0.0.0:{port}")
+    app.run(host="0.0.0.0", port=port, debug=debug)
