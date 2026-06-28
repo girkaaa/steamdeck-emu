@@ -92,17 +92,6 @@ def add_comment():
                      (page, author, text))
     return jsonify({"ok": True})
 
-@app.route("/admin/delete-comment", methods=["POST"])
-def delete_comment():
-    if request.form.get("key") != "girkaaa-adm-2026":
-        return jsonify({"error": "no"}), 403
-    cid = request.form.get("id")
-    if not cid:
-        return jsonify({"error": "no id"}), 400
-    with get_db() as conn:
-        conn.execute("DELETE FROM comments WHERE id=?", (cid,))
-    return jsonify({"ok": True, "deleted": cid})
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     debug = os.environ.get("FLASK_DEBUG", "0") == "1"
