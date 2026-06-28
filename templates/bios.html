@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}BIOS — Эмуляторы на Steam Deck{% endblock %}
+{% block content %}
+<section>
+    <h2>BIOS и прошивки</h2>
+    <p>Некоторые эмуляторы требуют файлы BIOS (прошивки) с оригинальных консолей. Эти файлы защищены авторским правом — вы должны получить их с собственной консоли.</p>
+    <div class="alert alert-danger">
+        Мы не предоставляем ссылки на скачивание BIOS-файлов. Извлеките их с вашей собственной консоли легальным способом.
+    </div>
+</section>
+
+<section>
+    <h2>Как извлечь BIOS</h2>
+
+    <h3>PlayStation 2 (PCSX2)</h3>
+    <div class="card">
+        <ol class="steps">
+            <li>Вставьте карту памяти PS2 в ПК (нужен адаптер)</li>
+            <li>Используйте утилиту для дампа BIOS (например, dumpBIOS)</li>
+            <li>Скопируйте файл .bin в папку Emulation/bios</li>
+            <li>В PCSX2 укажите путь к BIOS</li>
+        </ol>
+    </div>
+
+    <h3>PlayStation 1 (RetroArch)</h3>
+    <div class="card">
+        <ol class="steps">
+            <li>Скачайте утилиту PSX BIOS dumper</li>
+            <li>Запустите её на реальной PS1 или PS2</li>
+            <li>Скопируйте SCPH*.bin файлы в папку RetroArch/system</li>
+        </ol>
+        <p>Требуются файлы: <code>scph5500.bin</code>, <code>scph5501.bin</code>, <code>scph5502.bin</code></p>
+    </div>
+
+    <h3>PlayStation 3 (RPCS3)</h3>
+    <div class="card">
+        <ol class="steps">
+            <li>Установите последнюю прошивку PS3 через сайт PlayStation</li>
+            <li>В RPCS3 выберите File → Install Firmware</li>
+            <li>Укажите скачанный .PUP файл</li>
+        </ol>
+    </div>
+
+    <h3>Sega Saturn / Dreamcast</h3>
+    <div class="card">
+        <p>Для Saturn нужен BIOS-файл от региона вашей консоли. Для Dreamcast BIOS встроен в эмулятор Flycast.</p>
+    </div>
+
+    <h3>Nintendo Wii U (Cemu)</h3>
+    <div class="card">
+        <p>Cemu требует ключи (keys.txt) для расшифровки игр. Их можно получить с вашей консоли Wii U, используя homebrew-приложения.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Список необходимых файлов</h2>
+    <table>
+        <tr><th>Эмулятор</th><th>Файлы</th><th>Папка назначения</th></tr>
+        <tr><td>PCSX2</td><td>SCPH-*.bin</td><td>Emulation/bios</td></tr>
+        <tr><td>RPCS3</td><td>PS3UPDAT.PUP</td><td>Через меню Cemu</td></tr>
+        <tr><td>RetroArch (PS1)</td><td>scph5500.bin, scph5501.bin, scph5502.bin</td><td>RetroArch/system</td></tr>
+        <tr><td>DuckStation</td><td>scph*.bin</td><td>Настраивается в DuckStation</td></tr>
+        <tr><td>Cemu</td><td>keys.txt</td><td>Emulation/bios</td></tr>
+        <tr><td>YabaSanshiro</td><td>saturn.bin</td><td>YabaSanshiro/system</td></tr>
+    </table>
+</section>
+
+<section>
+    <h2>Проверка BIOS</h2>
+    <div class="card">
+        <p>В EmuDeck есть встроенная утилита проверки BIOS. Запустите EmuDeck → Tools → BIOS Checker, чтобы убедиться, что все файлы на месте.</p>
+        <p>Если BIOS отсутствует, эмулятор выдаст соответствующую ошибку при запуске игры.</p>
+    </div>
+</section>
+{% endblock %}
