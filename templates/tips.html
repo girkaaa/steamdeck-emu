@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% block title %}Советы — Эмуляторы на Steam Deck{% endblock %}
+{% block content %}
+<section>
+    <h2>Советы и хитрости</h2>
+    <p>Проверенные советы для лучшего опыта эмуляции на Steam Deck.</p>
+</section>
+
+<section>
+    <h2>Производительность</h2>
+    <div class="card">
+        <h3>Настройки TDP и частоты</h3>
+        <ul style="margin-left:1.5rem;">
+            <li>Для PS2/GameCube: TDP 9-11 Вт, частота GPU 1000-1200 МГц</li>
+            <li>Для PSP/PS1: TDP 4-6 Вт — экономит заряд батареи</li>
+            <li>Используйте Quick Access Menu (кнопка "…") для быстрой настройки</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Кэширование шейдеров</h3>
+        <p>В Dolphin и PCSX2 включите опцию "Compile Shaders Before Starting" (или аналог). Это уберёт микро-фризы во время игры.</p>
+        <p>В Yuzu/Ryujinx включите "Async Shader Compilation".</p>
+    </div>
+
+    <div class="card">
+        <h3>Разрешение</h3>
+        <p>Для PSP используйте 2x-3x разрешение (960×544 или 1440×816). Для PS2 — 1x-2x (родное 640×480 или 1280×960).</p>
+    </div>
+</section>
+
+<section>
+    <h2>Управление</h2>
+    <div class="card">
+        <h3>Лучшие раскладки</h3>
+        <ul style="margin-left:1.5rem;">
+            <li><strong>PS2/PS1:</strong> L2/R2 на бамперы, L1/R1 на триггеры</li>
+            <li><strong>GameCube:</strong> Назначьте аналоговые триггеры на курки (ZL/ZR)</li>
+            <li><strong>N64:</strong> Используйте C-кнопки на правый стик</li>
+            <li><strong>Wii:</strong> Гироскоп для указания, трекпады для кнопок</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>Сообщество раскладок</h3>
+        <p>В Steam Community найдите раскладки управления для каждого эмулятора. Многие пользователи уже выложили оптимальные конфигурации.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Память и хранение</h2>
+    <div class="card">
+        <ul style="margin-left:1.5rem;">
+            <li><strong>microSD:</strong> Используйте карты A2 (U3) для быстрой загрузки</li>
+            <li>Рекомендуемый размер: 256 ГБ — 1 ТБ</li>
+            <li>Форматируйте SD-карту в Steam Deck перед использованием</li>
+            <li>Переносите папку Emulation на SD-карту через EmuDeck</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>Работа с ROM-файлами</h2>
+    <div class="card">
+        <ul style="margin-left:1.5rem;">
+            <li>Используйте .chd для PS1/PS2/Sega — сжатие без потери качества</li>
+            <li>Для GameCube/Wii — .rvz формат (сжатие в Dolphin)</li>
+            <li>Для PSP — .iso или .cso (сжатый)</li>
+            <li>Сортируйте ROM-ы в папки по платформам</li>
+        </ul>
+        <div class="alert alert-success">
+            Файлы .chd и .rvz занимают на 30-60% меньше места!
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Steam ROM Manager</h2>
+    <div class="card">
+        <p><strong>Steam ROM Manager</strong> — утилита для добавления игр в библиотеку Steam с красивыми обоями.</p>
+        <ul style="margin-left:1.5rem;">
+            <li>Запускается из EmuDeck или отдельно</li>
+            <li>Автоматически парсит ROM-файлы и загружает арты</li>
+            <li>Добавляет игры в Steam с поддержкой Steam Cloud</li>
+            <li>Можно настроить исключение для отдельных платформ</li>
+        </ul>
+        <p>После добавления игр, они появятся в Game Mode с обложками и описаниями.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Решение проблем</h2>
+    <div class="card">
+        <h3>Игра вылетает</h3>
+        <p>Проверьте: достаточно ли TDP, не перегревается ли Steam Deck, правильный ли регион BIOS.</p>
+    </div>
+    <div class="card">
+        <h3>Нет звука</h3>
+        <p>В настройках эмулятора выберите ALSA или PulseAudio. Отключите аудио-буферизацию.</p>
+    </div>
+    <div class="card">
+        <h3>Тормозит</h3>
+        <p>Понизьте разрешение, отключите тени и пост-эффекты, увеличьте TDP до 12-15 Вт.</p>
+    </div>
+    <div class="card">
+        <h3>Не сохраняется прогресс</h3>
+        <p>Проверьте права на папки Emulation/saves. Запустите эмулятор из Desktop Mode один раз.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Ссылки для скачивания</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>EmuDeck</h3>
+            <p>Автоматическая настройка эмуляторов</p>
+            <p><a href="https://www.emudeck.com/" target="_blank" style="color:#00d4aa;">emudeck.com →</a></p>
+        </div>
+        <div class="card">
+            <h3>RetroArch</h3>
+            <p>Универсальный фронтенд для ретро-игр</p>
+            <p><a href="https://www.retroarch.com/" target="_blank" style="color:#00d4aa;">retroarch.com →</a></p>
+        </div>
+        <div class="card">
+            <h3>Dolphin</h3>
+            <p>Эмулятор GameCube/Wii</p>
+            <p><a href="https://dolphin-emu.org/download/" target="_blank" style="color:#00d4aa;">dolphin-emu.org →</a></p>
+        </div>
+        <div class="card">
+            <h3>PCSX2</h3>
+            <p>Эмулятор PS2</p>
+            <p><a href="https://pcsx2.net/downloads/" target="_blank" style="color:#00d4aa;">pcsx2.net →</a></p>
+        </div>
+        <div class="card">
+            <h3>PPSSPP</h3>
+            <p>Эмулятор PSP</p>
+            <p><a href="https://www.ppsspp.org/download/" target="_blank" style="color:#00d4aa;">ppsspp.org →</a></p>
+        </div>
+        <div class="card">
+            <h3>RPCS3</h3>
+            <p>Эмулятор PS3</p>
+            <p><a href="https://rpcs3.net/download" target="_blank" style="color:#00d4aa;">rpcs3.net →</a></p>
+        </div>
+        <div class="card">
+            <h3>Cemu</h3>
+            <p>Эмулятор Wii U</p>
+            <p><a href="https://cemu.info/" target="_blank" style="color:#00d4aa;">cemu.info →</a></p>
+        </div>
+        <div class="card">
+            <h3>Steam ROM Manager</h3>
+            <p>Добавление игр в Steam</p>
+            <p><a href="https://github.com/SteamGridDB/steam-rom-manager" target="_blank" style="color:#00d4aa;">GitHub →</a></p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Русскоязычные сообщества</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>DTF — Steam Deck</h3>
+            <p>Статьи и обсуждения на русском языке</p>
+            <p><a href="https://dtf.ru/search?q=steam+deck+%D1%8D%D0%BC%D1%83%D0%BB%D1%8F%D1%86%D0%B8%D1%8F" target="_blank" style="color:#00d4aa;">dtf.ru →</a></p>
+        </div>
+        <div class="card">
+            <h3>Pikabu — Steam Deck</h3>
+            <p>Посты пользователей и гайды</p>
+            <p><a href="https://pikabu.ru/tag/Steam%20Deck" target="_blank" style="color:#00d4aa;">pikabu.ru →</a></p>
+        </div>
+        <div class="card">
+            <h3>YouTube — русские гайды</h3>
+            <p>Видео-инструкции по эмуляции</p>
+            <p><a href="https://www.youtube.com/results?search_query=steam+deck+%D1%8D%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80+%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0+2025" target="_blank" style="color:#00d4aa;">Смотреть →</a></p>
+        </div>
+        <div class="card">
+            <h3>Reddit — Steam Deck</h3>
+            <p>Международное сообщество</p>
+            <p><a href="https://www.reddit.com/r/SteamDeck/" target="_blank" style="color:#00d4aa;">reddit.com →</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}
