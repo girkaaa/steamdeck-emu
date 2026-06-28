@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Эмуляторы — Эмуляторы на Steam Deck{% endblock %}
+{% block content %}
+<section>
+    <h2>Основные эмуляторы</h2>
+    <p>Steam Deck поддерживает огромное количество эмуляторов. Вот самые популярные и проверенные:</p>
+</section>
+
+<section>
+    <h2>RetroArch (мультисистемный)</h2>
+    <div class="card">
+        <p><strong>RetroArch</strong> — универсальный фронтенд, объединяющий десятки эмуляторов (ядер) в одном интерфейсе.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Установка: через Discover Store или EmuDeck</li>
+            <li>Ядра: Snes9x, Genesis Plus GX, PCSX ReARMed, Mupen64Plus, Beetle PSX и др.</li>
+            <li>Поддержка шейдеров, CRT-фильтров, перемотки</li>
+        </ul>
+        <p><span class="tag">Рекомендуется</span> Для консолей до 5-го поколения включительно</p>
+        <p><a href="https://www.retroarch.com/" target="_blank" style="color:#00d4aa;">Скачать RetroArch →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>Dolphin (GameCube / Wii)</h2>
+    <div class="card">
+        <p><strong>Dolphin</strong> — один из лучших эмуляторов, работающий на Steam Deck практически идеально.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Большинство игр идут в 60 FPS на родном разрешении</li>
+            <li>Поддержка сохранений, читов, широкоформатных патчей</li>
+            <li>Встроенная поддержка геймпада Steam Deck</li>
+        </ul>
+        <p><a href="https://dolphin-emu.org/download/" target="_blank" style="color:#00d4aa;">Скачать Dolphin →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>PCSX2 (PS2)</h2>
+    <div class="card">
+        <p><strong>PCSX2</strong> — эмулятор PlayStation 2. На Steam Deck показывает отличные результаты.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Большинство игр работают в 60 FPS</li>
+            <li>Поддержка аппаратного рендеринга Vulkan</li>
+            <li>Требуется BIOS PS2 (скачайте с вашей консоли)</li>
+        </ul>
+        <div class="alert">
+            Для ускорения загрузки используйте предварительное кэширование шейдеров.
+        </div>
+        <p><a href="https://pcsx2.net/downloads/" target="_blank" style="color:#00d4aa;">Скачать PCSX2 →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>PPSSPP (PSP)</h2>
+    <div class="card">
+        <p><strong>PPSSPP</strong> — эмулятор PlayStation Portable. Игры идут идеально, часто с повышением разрешения.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Рендеринг в 2x-4x родного разрешения PSP</li>
+            <li>Поддержка сохранений, текстурных паков</li>
+            <li>Не требует BIOS</li>
+        </ul>
+        <p><a href="https://www.ppsspp.org/download/" target="_blank" style="color:#00d4aa;">Скачать PPSSPP →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>RPCS3 (PS3)</h2>
+    <div class="card">
+        <p><strong>RPCS3</strong> — эмулятор PlayStation 3. Требователен к ресурсам, но многие игры работают хорошо.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Используйте Vulkan для лучшей производительности</li>
+            <li>2D-игры и файтинги работают отлично</li>
+            <li>Требуется BIOS PS3</li>
+        </ul>
+        <div class="alert alert-danger">
+            Не все игры запускаются. Проверьте совместимость на сайте RPCS3.
+        </div>
+        <p><a href="https://rpcs3.net/download" target="_blank" style="color:#00d4aa;">Скачать RPCS3 →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>Cemu (Wii U)</h2>
+    <div class="card">
+        <p><strong>Cemu</strong> — эмулятор Wii U. На Steam Deck многие игры работают в 30-60 FPS.</p>
+        <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+            <li>Breath of the Wild — 30-40 FPS</li>
+            <li>Mario Kart 8 — 60 FPS</li>
+            <li>Требуется ключи Wii U</li>
+        </ul>
+        <p><a href="https://cemu.info/" target="_blank" style="color:#00d4aa;">Скачать Cemu →</a></p>
+    </div>
+</section>
+
+<section>
+    <h2>Другие эмуляторы</h2>
+    <table>
+        <tr><th>Консоль</th><th>Эмулятор</th><th>Примечание</th></tr>
+        <tr><td>Nintendo 3DS</td><td>Citra</td><td>Хорошо, но некоторые игры тормозят</td></tr>
+        <tr><td>Sega Saturn</td><td>YabaSanshiro / Kronos</td><td>Средняя производительность</td></tr>
+        <tr><td>Dreamcast</td><td>Flycast / Redream</td><td>Отлично</td></tr>
+        <tr><td>Nintendo Switch</td><td>Yuzu / Ryujinx</td><td>Нестабильно, требует терпения</td></tr>
+        <tr><td>MS-DOS</td><td>DOSBox-Pure</td><td>Отлично для старых игр</td></tr>
+    </table>
+</section>
+{% endblock %}
