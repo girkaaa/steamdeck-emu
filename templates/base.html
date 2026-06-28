@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Эмуляторы на Steam Deck{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Steam Deck Эмуляция</h1>
+        <p>Полное руководство по настройке эмуляторов на Steam Deck</p>
+        <div style="margin-top:8px;font-size:0.85rem;color:#8899a6;">
+            👁 {{ stats.total }} человек зашло · {{ stats.online }} сейчас на странице
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Главная</a></li>
+            <li><a href="{{ url_for('emulators') }}">Эмуляторы</a></li>
+            <li><a href="{{ url_for('setup') }}">Настройка</a></li>
+            <li><a href="{{ url_for('bios') }}">BIOS</a></li>
+            <li><a href="{{ url_for('tips') }}">Советы</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <section style="max-width:900px;margin:0 auto;padding:0 1rem 2rem;">
+        <h2 style="color:#00d4aa;border-bottom:2px solid #2a2a4e;padding-bottom:0.5rem;">Комментарии</h2>
+
+        <div style="background:#1a1a2e;border-radius:12px;padding:1.5rem;border:1px solid #2a2a4e;margin-bottom:1.5rem;">
+            <form id="commentForm">
+                <input type="hidden" name="page" id="pageInput" value="{{ page }}">
+                <input type="text" name="author" placeholder="Твоё имя (необязательно)"
+                       style="width:100%;padding:0.6rem;margin-bottom:0.7rem;border:1px solid #2a2a4e;border-radius:6px;background:#0f1419;color:#e1e8ed;">
+                <textarea name="text" placeholder="Напиши комментарий..." required
+                          style="width:100%;padding:0.6rem;min-height:80px;border:1px solid #2a2a4e;border-radius:6px;background:#0f1419;color:#e1e8ed;resize:vertical;"></textarea>
+                <button type="submit"
+                        style="margin-top:0.7rem;padding:0.6rem 1.5rem;background:#00d4aa;color:#0f1419;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">
+                    Отправить
+                </button>
+                <span id="formStatus" style="margin-left:1rem;font-size:0.9rem;"></span>
+            </form>
+        </div>
+
+        <div id="commentsList">
+            {% for c in comments %}
+            <div style="background:#1a1a2e;border-radius:8px;padding:1rem;border:1px solid #2a2a4e;margin-bottom:0.7rem;">
+                <strong style="color:#00d4aa;">{{ c.author }}</strong>
+                <span style="color:#556;font-size:0.8rem;margin-left:0.5rem;">{{ c.created_at }}</span>
+                <p style="margin-top:0.3rem;">{{ c.text }}</p>
+            </div>
+            {% else %}
+            <p style="color:#556;">Пока нет комментариев. Будь первым!</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <p>Сделано <strong>girkaaa</strong> с любовью к ретрогеймингу</p>
+    </footer>
+
+    <script>
+        document.getElementById('commentForm').onsubmit = async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const status = document.getElementById('formStatus');
+            status.textContent = 'Отправка...';
+            status.style.color = '#8899a6';
+            const fd = new FormData(form);
+            const res = await fetch('{{ url_for("add_comment") }}', { method: 'POST', body: fd });
+            const data = await res.json();
+            if (data.error) {
+                status.textContent = data.error;
+                status.style.color = '#dc3545';
+            } else {
+                status.textContent = 'Отправлено!';
+                status.style.color = '#00d4aa';
+                form.querySelector('textarea').value = '';
+                location.reload();
+            }
+        };
+    </script>
+</body>
+</html>
